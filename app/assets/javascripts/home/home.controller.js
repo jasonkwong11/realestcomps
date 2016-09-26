@@ -6,7 +6,7 @@
         var vm = this;
 
         // callable methods on the VM
-        vm.name = "Jason"
+        vm.name = "Jason is cool and smart"
         // instantiated info
         activate();
 
