@@ -1,0 +1,8 @@
+.byebug_history
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+/vender/assets/bower_components/*
