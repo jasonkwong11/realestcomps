@@ -18,7 +18,7 @@
         // defined methods
         function activate() {
             getProperty();
-            console.log(vm.property);
+            console.log("activate is working");
         }
 
         function getProperty() {
@@ -26,30 +26,10 @@
                        .then(setProperty)
         }
 
-        function getProperty() {
-
-        }
-
-        function createProperty() {
-            return PropertyFactory.createProperty(vm.newProperty)
-                       .then(getProperty)
-        }
-
-        function updateProperty() {
-
-        }
-
-        function deleteProperty() {
-
-        }
-
         function setProperty(data) {
             return vm.property = data;
             debugger;
         }
-
-
-
     };
 
     angular

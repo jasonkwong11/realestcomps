@@ -8,7 +8,8 @@
         }
 
         function getProperty() {
-            return $http.get('/property')
+            return $http.get('/property.json')
+            console.log("inside of getProperty")
                        .then(handleResponse)
                        .catch(handleError);
         }
