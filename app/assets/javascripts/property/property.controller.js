@@ -10,7 +10,6 @@
 
         vm.getProperty = getProperty;
 
-
         // instantiated info
         activate();
 

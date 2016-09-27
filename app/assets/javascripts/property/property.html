@@ -2,7 +2,22 @@
 
 This is javascripts/property/property.html
 <br>
-
+<br>
 {{vm.name}}
-{{vm.property}}
+<h4>Here are the comps for</h4>
+{{vm.property.data.street}}
+{{vm.property.data.city}}
+{{vm.property.data.state}}
+{{vm.property.data.zip}}
+
+<h4>Comparable Properties:</h4>
+
+<ul>
+    <li ng-repeat="comp in vm.property.data.comps">
+    {{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}} <br> Zillow Estimated Value: ${{comp.zestimate}} <br> Year Built: {{comp.year_built}} <br> Last Sold: {{comp.last_sold_date}} <br><br>
+    </li>
+</ul>
+
+<br>
+<br>
 </ui-view>
