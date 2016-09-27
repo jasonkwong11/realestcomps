@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+  
+gem 'rillow', '~> 0.2.0'
 
 gem 'responders'
 
