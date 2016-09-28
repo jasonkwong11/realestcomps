@@ -10,9 +10,9 @@
 
         vm.getProperty = getProperty;
 
+
         // instantiated info
         activate();
-
 
         // defined methods
         function activate() {
