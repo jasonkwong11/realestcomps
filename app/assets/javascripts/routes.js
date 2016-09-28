@@ -20,6 +20,10 @@
                     url: '/comps/:compId',
                     templateUrl: 'comp/comp.html',
                     controller: 'CompController as vm'
+                })
+                .state('about', {
+                    url: '/about',
+                    templateUrl: 'home/about.html'
                 });
 
             $urlRouterProvider.otherwise('/');
