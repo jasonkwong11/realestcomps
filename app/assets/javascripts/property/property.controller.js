@@ -6,8 +6,7 @@
         var vm = this;
 
         // callable methods on the VM
-        vm.name = 'You are in the Property app';
-
+  
         vm.getProperty = getProperty;
 
         // instantiated info

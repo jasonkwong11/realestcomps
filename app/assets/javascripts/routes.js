@@ -15,6 +15,11 @@
                     url: 'property',
                     templateUrl: 'property/property.html',
                     controller: 'PropertyController as vm'
+                })
+                .state('home.property.comp', {
+                    url: '/comps/:id',
+                    templateUrl: 'comp/comp.html',
+                    controller: 'CompController as vm'
                 });
 
             $urlRouterProvider.otherwise('/');
