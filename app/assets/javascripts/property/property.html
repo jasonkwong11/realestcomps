@@ -13,10 +13,12 @@ This is javascripts/property/property.html
 <h4>Comparable Properties:</h4>
 
 <ul>
-    <li ng-repeat="comp in vm.property.data.comps">
-    {{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}} <br> Zillow Estimated Value: ${{comp.zestimate}} <br> Year Built: {{comp.year_built}} <br> Last Sold: {{comp.last_sold_date}} <br><br>
-    </li>
+   <div dir-paginate="comp in vm.property.data.comps | itemsPerPage: 3">
+      <li>{{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}} <br> Zillow Estimated Value: ${{comp.zestimate}} <br> Year Built: {{comp.year_built}} <br> Last Sold: {{comp.last_sold_date}}
+      </li>
+    </div>
 </ul>
+<dir-pagination-controls></dir-pagination-controls>
 
 <br>
 <br>
