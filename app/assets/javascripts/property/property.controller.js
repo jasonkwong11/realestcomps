@@ -24,8 +24,8 @@
         }
 
         function setProperty(data) {
+            console.log(data);
             return vm.property = data;
-            debugger;
         }
     };
 
