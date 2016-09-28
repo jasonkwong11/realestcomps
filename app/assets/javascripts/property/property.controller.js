@@ -10,14 +10,13 @@
 
         vm.getProperty = getProperty;
 
-
         // instantiated info
         activate();
+
 
         // defined methods
         function activate() {
             getProperty();
-            console.log("activate is working");
         }
 
         function getProperty() {
