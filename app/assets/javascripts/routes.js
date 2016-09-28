@@ -17,7 +17,7 @@
                     controller: 'PropertyController as vm'
                 })
                 .state('home.property.comp', {
-                    url: '/comps/:id',
+                    url: '/comps/:compId',
                     templateUrl: 'comp/comp.html',
                     controller: 'CompController as vm'
                 });

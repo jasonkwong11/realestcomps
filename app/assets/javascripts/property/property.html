@@ -21,7 +21,7 @@
 
 <ul>
    <div dir-paginate="comp in vm.property.data.comps | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter: vm.search | itemsPerPage: 3">
-      <li><strong>{{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}} | Zillow Estimated Value: {{comp.zestimate | currency}} </strong><br> {{comp.bedrooms}} Beds, {{comp.bathrooms}} Baths<br> Year Built: {{comp.year_built}} <br> Last Sold: {{comp.last_sold_date}} for {{comp.last_sold_price | currency}}
+      <li><a href="" ui-sref='home.property.comp({compId: comp.id})'>{{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}} | Zillow Estimated Value: {{comp.zestimate | currency}} </a><br> {{comp.bedrooms}} Beds, {{comp.bathrooms}} Baths<br> Year Built: {{comp.year_built}} <br> Last Sold: {{comp.last_sold_date}} for {{comp.last_sold_price | currency}}
       </li>
     </div>
 </ul>
