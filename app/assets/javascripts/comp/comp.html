@@ -1,3 +1,18 @@
-You are inside comp.html
 
-{{vm.name}}
+<div ng-repeat="comp in vm.comps | filter: {id: vm.compId}">
+  <h2>{{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}}</h2>
+  <h3>Zillow Estimated Value: {{comp.zestimate | currency}}</h3>
+  Thirty Day Change in Value: {{comp.thirty_day_change | currency}} <br>
+  Percentile: {{comp.percentile}}<br>
+  Tax Assessment: {{comp.tax_assessment | currency}} in {{comp.year_tax_assessed}}<br>
+  Year Built: {{comp.year_built}}<br>
+  Square Feet: {{comp.square_feet | number}}<br>
+  {{comp.bedrooms}} Bedrooms, {{comp.bathrooms}} Bathrooms<br>
+  Last Sold on {{comp.last_sold_date}} for {{comp.last_sold_price | currency}}<br>
+  <br>
+  <h4>Zillow Links:</h4>
+  <a href={{comp.home_details_link}}> Home Details </a><br>
+  <a href={{comp.chart_data_link}}> Chart Data and Pictures </a><br>
+  <a href={{comp.map_this_home_link}}> Map this Home </a><br>
+  <a href={{comp.similar_sales_link}}> Research Similar Sales </a>
+</div> 
