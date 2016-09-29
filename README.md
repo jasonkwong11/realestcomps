@@ -1,24 +1,8 @@
-# README
+# Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Realest Comps lets real estate investors judge a potential investment property by providing a list of comps (comparable properties) and each comp's investor-relevant data. 
 
-Things you may want to cover:
+Get exact data and analytics for your investment property without risking mistakes by crunching the numbers in your head. 
 
-* Ruby version
+Get the data provided by the Zillow API without the clutter and noise. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
