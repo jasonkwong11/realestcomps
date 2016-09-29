@@ -24,6 +24,11 @@
                 .state('about', {
                     url: '/about',
                     templateUrl: 'home/about.html'
+                })
+                .state('comments', {
+                    url: '/comments',
+                    templateUrl: 'comments/comments.html',
+                    controller: 'CommentsCtrl'
                 });
 
             $urlRouterProvider.otherwise('/');

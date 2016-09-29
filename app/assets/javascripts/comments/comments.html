@@ -1,0 +1,61 @@
+<div>          
+  <h1>Comments</h1>
+    <h4>Please leave feedback or suggestions on features or stats you'd like to see added to the site:</h4><br>
+</div>
+
+<div class='row'>
+  <div class='column'>
+    <div ng-app='app'>
+      <div class='comments' ng-controller='CommentsCtrl'>
+        <form>
+          <fieldset>
+            <legend>
+              Your comment
+            </legend>
+            <div>
+              <label>
+                Name:
+                <input ng-model='name' type='text'>
+              </label>
+            </div>
+            <div>
+              <label>
+                Comment:
+                <textarea ng-model='text'></textarea>
+              </label>
+            </div>
+            <div>
+              <input class='button' ng-click='submit()' type='submit' value='Submit'>
+            </div>
+          </fieldset>
+        </form>
+        <h3>
+          {{comments.length}} Comments
+        </h3>
+        <ul>
+          <li ng-repeat='comment in comments'>
+            <div class='comment' ng-class='{approved: comment.approved}'>
+              <h5>
+                {{comment.name}}:
+              </h5>
+              <div>
+                {{comment.text}}
+              </div>
+              <p>
+                <small>
+                  <a ng-click='approve(comment)' ng-hide='comment.approved'>
+                    approve comment
+                    |
+                  </a>
+                  <a ng-click='drop(comment)'>
+                    delete comment
+                  </a>
+                </small>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
