@@ -12,22 +12,35 @@
 <div class='row'>
   <div class='column'>
     <div ng-app='app'>
-      <div class='comments' ng-controller='CommentsCtrl'>
-        <form>
+      <div class='comments' ng-controller='CommentsController as ctrl'>
+        <form name="form">
           <fieldset>
             <legend>
               Your comment
             </legend>
             <div>
               <label>
-                Name:
-                <input ng-model='name' type='text'>
+                Name: <br>
+                <input
+                  name="name"
+                  require="required"
+                  minlength="2"
+                  ng-model='name' 
+                  type='text' />
+                <div ng-messages="form.name.$error">
+                  <div ng-message='minlength'> Minimum Length is 2 </div>
+                  <div ng-message="required"> Username is required </div>
+                </div>  
               </label>
             </div>
             <div>
               <label>
-                Comment:
-                <textarea ng-model='text'></textarea>
+                Comment:<br>
+                <textarea name="text" required="required" minlength="5" ng-model='text'></textarea>  
+                <div ng-messages="form.text.$error">
+                  <div ng-message='minlength'> Minimum Length is 5 </div>
+                  <div ng-message="required"> Username is required </div>
+                </div>
               </label>
             </div>
             <div>

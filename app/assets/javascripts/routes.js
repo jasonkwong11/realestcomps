@@ -28,7 +28,7 @@
                 .state('comments', {
                     url: '/comments',
                     templateUrl: 'comments/comment.html',
-                    controller: 'CommentsCtrl'
+                    controller: 'CommentsController'
                 });
 
             $urlRouterProvider.otherwise('/');

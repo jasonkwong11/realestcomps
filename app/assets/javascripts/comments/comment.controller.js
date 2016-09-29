@@ -1,15 +1,18 @@
+//Thanks to Christian Fleschhut for help on this
+
 (function () {
     angular.module('app')
-    .controller('CommentsCtrl', function ($scope) {
+    .controller('CommentsController', function ($scope) {
+        $scope.name = '';
         $scope.comments = [
             {
-                name: 'asdf',
-                text: 'hello world',
+                name: 'naomi',
+                text: 'Cap rates would be really helpful!!',
                 approved: true
             },
             {
                 name: 'xyz',
-                text: 'lorem ipsum',
+                text: 'good work on this site, could use some css',
                 approved: false
             }
         ];
