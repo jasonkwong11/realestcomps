@@ -30,7 +30,7 @@
         }
 
         function setCurrentComp(){
-            var compsArray = vm.comps;debugger;
+            var compsArray = vm.comps;
             return vm.currentComp = compsArray.find(comp.id === $stateParams.id)
             
         }

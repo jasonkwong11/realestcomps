@@ -1,10 +1,10 @@
 //Thanks to Christian Fleschhut for help on this
+(function() {
+    'use strict';
 
-(function () {
-    angular.module('app')
-    .controller('CommentsController', function ($scope, $window) {
-        $scope.name = '';
-        $scope.comments = [
+    function CommentsController($scope, $window){
+      $scope.name = '';
+      $scope.comments = [
             {
                 name: 'naomi',
                 text: 'Cap rates would be really helpful!!',
@@ -16,6 +16,7 @@
                 approved: false
             }
         ];
+
         $scope.submit = function () {
          var anyInvalid = $scope.form.$invalid
             if (anyInvalid) {
@@ -30,11 +31,17 @@
                 return $scope.text = '';
             } 
         };
+
         $scope.approve = function (comment) {
             return comment.approved = true;
         };
+
         return $scope.drop = function (comment) {
             return $scope.comments.splice($scope.comments.indexOf(comment), 1);
         };
-    });
-}.call(this));
+    }
+
+    angular
+        .module('app')
+        .controller('CommentsController', CommentsController);
+}());
