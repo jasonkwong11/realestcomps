@@ -12,7 +12,7 @@
 <div class='row'>
   <div class='column'>
     <div ng-app='app'>
-      <div class='comments' ng-controller='CommentsController as ctrl'>
+      <div class='comments' ng-controller='CommentsController as vm'>
         <form name="form">
           <fieldset>
             <legend>
@@ -23,12 +23,11 @@
                 Name: <br>
                 <input
                   name="name"
+                  id="nameInput"
                   require="required"
-                  minlength="2"
                   ng-model='name' 
                   type='text'>
                 <div ng-messages="form.name.$error">
-                  <p ng-message='minlength'> At least be 2 characters required</p>
                   <p ng-message="required"> Name is required </p>
                 </div>  
               </label>
@@ -37,27 +36,26 @@
               <label>
                 Comment:<br>
                 <textarea 
-                  name="text" 
-                  required="required" 
-                  minlength="5" 
+                  name="text"
+                  id="commentText"
+                  required="required"
                   ng-model='text'> 
                 </textarea>
                   <div ng-messages="form.text.$error">
-                    <p ng-message='minlength'> At least 5 characters required </p>
                     <p ng-message="required"> Comment is required </p>
                   </div>
               </label>
             </div>
             <div>
-              <input class='button' ng-click='submit()' type='submit' value='Submit'>
+              <input class='button' ng-click='vm.submit()' type='submit' value='Submit'>
             </div>
           </fieldset>
         </form>
         <h3>
-          {{comments.length}} Comments
+          {{vm.comments.length}} Comments
         </h3>
         <ul>
-          <li ng-repeat='comment in comments'>
+          <li ng-repeat='comment in vm.comments'>
             <div class='comment' ng-class='{approved: comment.approved}'>
               <h5>
                 {{comment.name}}:

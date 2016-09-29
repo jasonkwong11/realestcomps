@@ -2,9 +2,12 @@
 (function() {
     'use strict';
 
-    function CommentsController($scope, $window){
-      $scope.name = '';
-      $scope.comments = [
+    function CommentsController($window){
+    
+      var vm = this;
+
+      vm.name = '';
+      vm.comments = [
             {
                 name: 'naomi',
                 text: 'Cap rates would be really helpful!!',
@@ -17,28 +20,35 @@
             }
         ];
 
-        $scope.submit = function () {
-         var anyInvalid = $scope.form.$invalid
-            if (anyInvalid) {
-               $window.alert("Please make sure there are no invalid fields.")
-            } else { 
-                $scope.comments.push({
-                    name: $scope.name,
-                    text: $scope.text,
-                    approved: false
-                });
-                $scope.name = '';
-                return $scope.text = '';
-            } 
+        vm.submit = submit;
+        vm.approve = approve;
+        vm.drop = drop;
+
+        function submit () {
+         var nameInput = form.name.value
+         var textInput = form.text.value
+
+           if (nameInput == "" || textInput == "") {
+              $window.alert("Please make sure there are no invalid fields.")
+           } else { 
+           vm.comments.push({
+               name: nameInput,
+               text: textInput,
+               approved: false
+           });
+           nameInput = '';
+           return textInput = '';
+           } 
         };
 
-        $scope.approve = function (comment) {
+        function approve (comment) {
             return comment.approved = true;
         };
 
-        return $scope.drop = function (comment) {
-            return $scope.comments.splice($scope.comments.indexOf(comment), 1);
+        function drop (comment) {
+            return vm.comments.splice(vm.comments.indexOf(comment), 1);
         };
+
     }
 
     angular
