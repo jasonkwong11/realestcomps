@@ -26,21 +26,27 @@
                   require="required"
                   minlength="2"
                   ng-model='name' 
-                  type='text' />
+                  type='text'>
                 <div ng-messages="form.name.$error">
-                  <div ng-message='minlength'> Minimum Length is 2 </div>
-                  <div ng-message="required"> Username is required </div>
+                  <p ng-message='minlength'> Minimum Length is 2 </p>
+                  <p ng-message="required"> Username is required </p>
                 </div>  
               </label>
             </div>
             <div>
               <label>
                 Comment:<br>
-                <textarea name="text" required="required" minlength="5" ng-model='text'></textarea>  
+                <textarea 
+                  name="text" 
+                  required="required" 
+                  minlength="5" 
+                  ng-model='text'> 
+
                 <div ng-messages="form.text.$error">
-                  <div ng-message='minlength'> Minimum Length is 5 </div>
-                  <div ng-message="required"> Username is required </div>
+                  <p ng-message='minlength'> Your comment is too short </p>
+                  <p ng-message="required"> This field is required </p>
                 </div>
+                </textarea>
               </label>
             </div>
             <div>
