@@ -2,7 +2,7 @@
 
 (function () {
     angular.module('app')
-    .controller('CommentsController', function ($scope) {
+    .controller('CommentsController', function ($scope, $window) {
         $scope.name = '';
         $scope.comments = [
             {
@@ -17,14 +17,18 @@
             }
         ];
         $scope.submit = function () {
-              
-            $scope.comments.push({
-                name: $scope.name,
-                text: $scope.text,
-                approved: false
-            });
-            $scope.name = '';
-            return $scope.text = '';
+         var anyInvalid = $scope.form.$invalid
+            if (anyInvalid) {
+               $window.alert("Please make sure there are no invalid fields.")
+            } else { 
+                $scope.comments.push({
+                    name: $scope.name,
+                    text: $scope.text,
+                    approved: false
+                });
+                $scope.name = '';
+                return $scope.text = '';
+            } 
         };
         $scope.approve = function (comment) {
             return comment.approved = true;

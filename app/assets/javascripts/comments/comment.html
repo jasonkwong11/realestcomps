@@ -28,8 +28,8 @@
                   ng-model='name' 
                   type='text'>
                 <div ng-messages="form.name.$error">
-                  <p ng-message='minlength'> Minimum Length is 2 </p>
-                  <p ng-message="required"> Username is required </p>
+                  <p ng-message='minlength'> At least be 2 characters required</p>
+                  <p ng-message="required"> Name is required </p>
                 </div>  
               </label>
             </div>
@@ -41,12 +41,11 @@
                   required="required" 
                   minlength="5" 
                   ng-model='text'> 
-
-                <div ng-messages="form.text.$error">
-                  <p ng-message='minlength'> Your comment is too short </p>
-                  <p ng-message="required"> This field is required </p>
-                </div>
                 </textarea>
+                  <div ng-messages="form.text.$error">
+                    <p ng-message='minlength'> At least 5 characters required </p>
+                    <p ng-message="required"> Comment is required </p>
+                  </div>
               </label>
             </div>
             <div>
