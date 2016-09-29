@@ -9,14 +9,15 @@
                 name: 'naomi',
                 text: 'Cap rates would be really helpful!!',
                 approved: true
-            },
+            }, 
             {
-                name: 'xyz',
+                name: 'brad',
                 text: 'good work on this site, could use some css',
                 approved: false
             }
         ];
         $scope.submit = function () {
+              
             $scope.comments.push({
                 name: $scope.name,
                 text: $scope.text,
