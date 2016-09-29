@@ -27,7 +27,7 @@
                 })
                 .state('comments', {
                     url: '/comments',
-                    templateUrl: 'comments/comments.html',
+                    templateUrl: 'comments/comment.html',
                     controller: 'CommentsCtrl'
                 });
 
