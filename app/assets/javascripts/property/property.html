@@ -6,10 +6,11 @@
 {{vm.property.data.street}}.
 {{vm.property.data.city}},
 {{vm.property.data.state}}
-{{vm.property.data.zip}}
+{{vm.property.data.zip}} 
+<strong> Zillow Estimated Value: {{vm.property.data.zestimate | currency}}</strong>
+
 
 <br><br>
-
   <p><strong>Filter by Bathrooms</strong></p>
     <input type="checkbox" data-ng-model='search.type3' data-ng-true-value='2.5' data-ng-false-value='' /> 2.5 Baths  
     <input type="checkbox" data-ng-model='search.type2' data-ng-true-value='3.5' data-ng-false-value='' /> 3.5 Baths  
