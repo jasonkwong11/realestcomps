@@ -4,9 +4,9 @@
 
 Realest Comps lets real estate investors judge a potential investment property by providing a list of comps (comparable properties) and each comp's investor-relevant data. 
 
-Get exact data and analytics for your investment property without risking mistakes by crunching the numbers in your head. All data is provided by the Zillow API, without the clutter and noise.
+Get the analytics for your investment property without risking mistakes by crunching the numbers in your head. All data is provided by two Zillow APIs, without the clutter and noise.
 
-Uses a Rails backend to retrieve data from Zillow API, and uses Angular to provide a snappy interace to it. 
+Uses a Rails backend to retrieve data from two Zillow APIs and Angular to provide a snappy interface to it. 
 
 ## Installation
 
