@@ -1,0 +1,27 @@
+
+
+<header class="main-header">
+  <div class="title">
+    <h1 class="header-h1">Welcome to Realest Comps!</h1>
+    <h4 class="header-h4">The quickest way for real estate investors to find comps.</h4>
+    <br>
+
+  </div>
+</header>
+
+<h1>Find Comps for:</h1>
+<%= form_tag '/search' do %>
+  <%= label_tag :'street address' %>
+  <%= text_field_tag :address %>
+
+  <%= label_tag :'city, state and zip' %>
+  <%= text_field_tag :citystatezip %>
+  <%= submit_tag "Search!" %>
+<% end %>
+
+<div>
+  <% if @error %>
+    <p><%= @error %></p>
+  <% end %>
+</div>
+

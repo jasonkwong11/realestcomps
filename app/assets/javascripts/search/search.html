@@ -1,0 +1,43 @@
+<div class='row'>
+  <div class='column'>
+    <div ng-app='app'>
+      <div class='comments' ng-controller='SearchController as vm'>
+        <form name="form" action="/search" accept-charset="UTF-8" method="post" class="ng-pristine ng-valid">
+          <fieldset>
+            <legend>
+              Enter a principal property to search
+            </legend>
+            <div>
+              <label for="street_address"> Street Address: </label>
+                <input
+                  name="address"
+                  id="address"
+                  require="required"
+                  type='text'>
+                <div ng-messages="form.name.$error">
+                  <p ng-message="required"> Street Address is required </p>
+                </div>  
+              </label>
+            </div>
+            <div>
+              <label>City, State and Zip:</label>
+                <input 
+                  type="text"
+                  name="citystatezip"
+                  id="citystatezip"
+                  required="required"> 
+                </input>
+                  <div ng-messages="form.text.$error">
+                    <p ng-message="required"> City State and Zip is required </p>
+                  </div>
+              </label>
+            </div>
+            <div>
+              <input name="commit" data-disable-with="Search!" class='button' ng-click='vm.search()' type='submit' value='Search!'>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

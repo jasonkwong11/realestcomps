@@ -1,6 +1,7 @@
 require 'rillow'
 
 class PropertiesController < ApplicationController
+   skip_before_action :verify_authenticity_token
 
   def zillow
     rillow = Rillow.new('X1-ZWz1fgbe5szxmz_29gz1') 
@@ -64,9 +65,8 @@ class PropertiesController < ApplicationController
       principle_property.comps.create(zpid:zpid, street:street, city:city, zip:zip, state:state, latitude:latitude, longitude:longitude, zestimate:zestimate, thirty_day_change:thirty_day_change, percentile:percentile, year_tax_assessed:year_tax_assessed, tax_assessment:tax_assessment, year_built:year_built, square_feet:square_feet, bathrooms:bathrooms, bedrooms:bedrooms, last_sold_date:last_sold_date, last_sold_price:last_sold_price, home_details_link:home_details_link, chart_data_link:chart_data_link, map_this_home_link:map_this_home_link, similar_sales_link:similar_sales_link)
     
     end
-    #still need to validate for errors
-     render file: "/Users/jasonkwong/developer/realestcomps/app/assets/javascripts/property/property.html"
 
+    puts "HI YOU HAVE REACHED THE END OF THE ZILLOW ACTION!!!!"
   end
 
   def show
