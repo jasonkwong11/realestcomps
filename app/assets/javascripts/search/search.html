@@ -1,8 +1,8 @@
 <div class='row'>
   <div class='column'>
     <div ng-app='app'>
-      <div class='comments' ng-controller='SearchController as vm'>
-        <form name="form" action="/search" accept-charset="UTF-8" method="post" class="ng-pristine ng-valid">
+      <div class='comments' ng-controller='PropertyController as vm'>
+        <form ng-submit="vm.createProperty()">
           <fieldset>
             <legend>
               Enter a principal property to search
@@ -10,6 +10,7 @@
             <div>
               <label for="street_address"> Street Address: </label>
                 <input
+                  ng-model="vm.newProperty.street_address"
                   name="address"
                   id="address"
                   require="required"
@@ -22,6 +23,7 @@
             <div>
               <label>City, State and Zip:</label>
                 <input 
+                  ng-model="vm.newProperty.citystatezip"
                   type="text"
                   name="citystatezip"
                   id="citystatezip"
@@ -33,7 +35,7 @@
               </label>
             </div>
             <div>
-              <input name="commit" data-disable-with="Search!" class='button' ng-click='vm.search()' type='submit' value='Search!'>
+              <input class='button' type='submit' value='Search!'>
             </div>
           </fieldset>
         </form>
@@ -41,3 +43,6 @@
     </div>
   </div>
 </div>
+
+
+<ui-view></ui-view>

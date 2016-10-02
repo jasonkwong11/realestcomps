@@ -4,14 +4,31 @@
 
     function PropertyFactory($http) {
         return {
-            getProperty: getProperty
+            getProperty: getProperty,
+            createProperty: createProperty
         }
 
         function getProperty() {
-            return $http.get('/property.json')
+            return $http.get('/property')
             console.log("inside of getProperty")
                        .then(handleResponse)
                        .catch(handleError);
+        }
+
+        function createProperty(property) {
+            var req = {
+                method: "POST",
+                url: '/property',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: {
+                    property: property 
+                }
+            };
+
+            return $http(req)
+                .catch(handleError)
         }
 
         function handleResponse(response) {

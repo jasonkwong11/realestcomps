@@ -1,13 +1,14 @@
 (function() {
     'use strict';
 
-    function PropertyController(PropertyFactory) {
+    function PropertyController(PropertyFactory, $state) {
 
         var vm = this;
 
         // callable methods on the VM
   
         vm.getProperty = getProperty;
+        vm.createProperty = createProperty;
 
         // instantiated info
         activate();
@@ -15,17 +16,24 @@
 
         // defined methods
         function activate() {
-            getProperty();
+              getProperty();
         }
 
         function getProperty() {
             return PropertyFactory.getProperty()
-                       .then(setProperty)
+                        .then(setProperty)
+                        
         }
 
         function setProperty(data) {
             console.log(data);
+            console.log("INSIDE SETPROPERTY!!!!!!!!!!!!!!!!!")
             return vm.property = data;
+        }
+
+        function createProperty() {
+            return PropertyFactory.createProperty(vm.newProperty)
+                    .then(getProperty);
         }
     };
 

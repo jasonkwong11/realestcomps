@@ -9,14 +9,14 @@
                 .state('search', {
                     url: '/',
                     templateUrl: 'search/search.html',
-                    controller: 'SearchController as vm'
+                    controller: 'PropertyController as vm'
                 })
-                .state('search.property', {
+                .state('property', {
                     url: 'property',
                     templateUrl: 'property/property.html',
                     controller: 'PropertyController as vm'
                 })
-                .state('search.property.comp', {
+                .state('property.comp', {
                     url: '/comps/:compId',
                     templateUrl: 'comp/comp.html',
                     controller: 'CompController as vm'
