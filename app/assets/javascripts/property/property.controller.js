@@ -27,7 +27,6 @@
 
         function setProperty(data) {
             console.log(data);
-            console.log("INSIDE SETPROPERTY!!!!!!!!!!!!!!!!!")
             return vm.property = data;
         }
 

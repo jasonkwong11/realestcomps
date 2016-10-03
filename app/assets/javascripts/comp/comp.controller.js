@@ -4,8 +4,7 @@
     function CompController(PropertyFactory, $stateParams) {
 
         var vm = this;
-
-        // callable methods on the VM
+           // callable methods on the VM
   
         vm.getProperty = getProperty;
         vm.compId = $stateParams.compId
