@@ -5,7 +5,7 @@
 
 
 
-<div class='row'>
+<div ng-if="!vm.loading" class='row'>
   <div class='column'>
     <div ng-app='app'>
       <div class='search'>
@@ -50,6 +50,8 @@
     </div>
   </div>
 </div>
+
+<div ng-if="vm.loading">loading....</div>
 
 
 <ui-view></ui-view>

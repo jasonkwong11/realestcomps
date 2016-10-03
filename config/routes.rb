@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'properties#search'
+  root 'application#index'
+
   post '/property', to: 'properties#create'
   get 'property' => "properties#show" 
 

@@ -14,13 +14,7 @@
                 .state('search.property', {
                     url: 'property',
                     templateUrl: 'property/property.html',
-                    controller: 'PropertyController as vm',
-                    resolve: {
-                        PropertyFactory: 'PropertyFactory',
-                        property: function(PropertyFactory){
-                            return PropertyFactory.getProperty.$promise
-                        }
-                    }
+                    controller: 'PropertyController as vm'
                 })
                 .state('search.property.comp', {
                     url: '/comps/:compId',

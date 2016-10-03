@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    function PropertyController(PropertyFactory, $state) {
+    function PropertyController(PropertyFactory, $state, $timeout) {
 
         var vm = this;
 
@@ -9,15 +9,17 @@
   
         vm.getProperty = getProperty;
         vm.createProperty = createProperty;
+        vm.loading = false;
 
-        // instantiated info
         activate();
+
 
 
         // defined methods
         function activate() {
               getProperty();
         }
+        
 
         function getProperty() {
             return PropertyFactory.getProperty()
@@ -31,9 +33,17 @@
         }
 
         function createProperty() {
+            vm.loading = true;
             return PropertyFactory.createProperty(vm.newProperty)
-                    .then($state.go('search.property'))
-                    .then(getProperty);
+                    .then(getProperty)
+                    .then(goToProperties);
+
+            function goToProperties() {
+                return $timeout(function() {
+                    vm.loading = false;
+                    $state.go('search.property')
+                }, 1000);
+            }
         }
     };
 
