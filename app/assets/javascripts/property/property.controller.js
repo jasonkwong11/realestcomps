@@ -33,6 +33,7 @@
 
         function createProperty() {
             return PropertyFactory.createProperty(vm.newProperty)
+                    .then($state.go('search.property'))
                     .then(getProperty);
         }
     };

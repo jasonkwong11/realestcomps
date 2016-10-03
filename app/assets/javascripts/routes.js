@@ -4,26 +4,32 @@
 
     angular
         .module('app')
-        .config(function($stateProvider, $urlRouterProvider) {
+        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
             $stateProvider
                 .state('search', {
                     url: '/',
                     templateUrl: 'search/search.html',
                     controller: 'PropertyController as vm'
                 })
-                .state('property', {
+                .state('search.property', {
                     url: 'property',
                     templateUrl: 'property/property.html',
-                    controller: 'PropertyController as vm'
+                    controller: 'PropertyController as vm',
+                    resolve: {
+                        PropertyFactory: 'PropertyFactory',
+                        property: function(PropertyFactory){
+                            return PropertyFactory.getProperty.$promise
+                        }
+                    }
                 })
-                .state('property.comp', {
+                .state('search.property.comp', {
                     url: '/comps/:compId',
                     templateUrl: 'comp/comp.html',
                     controller: 'CompController as vm'
                 })
                 .state('about', {
                     url: '/about',
-                    templateUrl: 'home/about.html'
+                    templateUrl: 'search/about.html'
                 })
                 .state('comments', {
                     url: '/comments',
@@ -32,6 +38,11 @@
                 });
 
             $urlRouterProvider.otherwise('/');
+                 $locationProvider.html5Mode(
+                    {
+                        enabled: true,
+                        requireBase: false
+                    });
         });
 
 }());
