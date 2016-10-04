@@ -1,57 +1,96 @@
-<a href="#" ui-sref="search">Search</a>
-<a href="#" ui-sref="search.property">Property</a>
-<a href="#" ui-sref="about">About</a>
-<a href="#" ui-sref="comments">Feedback</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Realest Comps Bootstrapped</title>
 
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
 
-<div ng-if="!vm.loading" class='row'>
-  <div class='column'>
-    <div ng-app='app'>
-      <div class='search'>
-        <form ng-submit="vm.createProperty()">
-          <fieldset>
-            <legend>
-              Enter a principal property to search
-            </legend>
-            <div>
-              <label for="street_address"> Street Address: </label>
-                <input
-                  ng-model="vm.newProperty.street_address"
-                  name="address"
-                  id="address"
-                  require="required"
-                  type='text'>
-                <div ng-messages="form.name.$error">
-                  <p ng-message="required"> Street Address is required </p>
-                </div>  
-              </label>
-            </div>
-            <div>
-              <label>City, State and Zip:</label>
-                <input 
-                  ng-model="vm.newProperty.citystatezip"
-                  type="text"
-                  name="citystatezip"
-                  id="citystatezip"
-                  required="required"> 
-                </input>
-                  <div ng-messages="form.text.$error">
-                    <p ng-message="required"> City State and Zip is required </p>
-                  </div>
-              </label>
-            </div>
-            <div>
-              <input class='button' type='submit' value='Search!'>
-            </div>
-          </fieldset>
-        </form>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="#" class="btn navbar-brand" ui-sref="search">Search</a>
+        <a href="#" class="btn navbar-brand" ui-sref="search.property">Property</a>
+        <a href="#" class="btn navbar-brand" ui-sref="about">About</a>
+        <a href="#" class="btn navbar-brand" ui-sref="comments">Comments</a>
       </div>
     </div>
-  </div>
-</div>
-
-<div ng-if="vm.loading">loading....</div>
+  </nav>
 
 
-<ui-view></ui-view>
+  <div class="template">
+    <h1>Welcome to Realest Comps</h1>
+    <p class="lead">
+      The quickest way for real estate investors to find comparable properties.
+    </p>
+
+      <div ng-if="!vm.loading" class='row'>
+        <div class='column'>
+          <div ng-app='app'>
+            <div class='search'>
+              <form ng-submit="vm.createProperty()">
+                <fieldset>
+                  <legend>
+                    Enter a property to search
+                  </legend>
+                  <div>
+                    <label for="street_address"> Street Address: </label><br>
+                      <input
+                        ng-model="vm.newProperty.street_address"
+                        name="address"
+                        id="address"
+                        require="required"
+                        type='text'>
+                      <div ng-messages="form.name.$error">
+                        <p ng-message="required"> Street Address is required </p>
+                      </div>  
+                    </label>
+                  </div>
+                  <div>
+                    <label>City, State and Zip:</label><br>
+                      <input 
+                        ng-model="vm.newProperty.citystatezip"
+                        type="text"
+                        name="citystatezip"
+                        id="citystatezip"
+                        required="required"> 
+                      </input>
+                        <div ng-messages="form.text.$error">
+                          <p ng-message="required"> City State and Zip is required </p>
+                        </div>
+                    </label>
+                  </div>
+                  <div>
+                    <br><input class="btn btn-info" type='submit' value='Search!'>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="vm.loading">loading....</div>
+      </div>  <!-- template div -->
+
+      <ui-view></ui-view>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

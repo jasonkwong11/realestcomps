@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
+
+
+gem 'bootstrap-sass', '~> 3.2.0'
+
+gem 'autoprefixer-rails'
   
 gem 'rillow', '~> 0.2.0'
 
