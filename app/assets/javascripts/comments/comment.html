@@ -1,81 +1,88 @@
-<a href="#" ui-sref="search">Search</a>
-<a href="#" ui-sref="search.property">Property</a>
-<a href="#" ui-sref="about">About</a>
-<a href="#" ui-sref="comments">Comments</a>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="#" class="btn navbar-brand" ui-sref="search">Search</a>
+        <a href="#" class="btn navbar-brand" ui-sref="search.property">Property</a>
+        <a href="#" class="btn navbar-brand" ui-sref="about">About</a>
+        <a href="#" class="btn navbar-brand" ui-sref="comments">Comments</a>
+      </div>
+    </div>
+  </nav>
 
-<div>          
-  <h1>Comments</h1>
-    <h4>Please leave feedback or suggestions on features or stats you'd like to see added to the site:</h4><br>
-</div>
+<div class="template">          
+    <h1>Comments</h1>
+      <h4>Please leave feedback or suggestions on features or stats you'd like to see added to the site:</h4><br>
 
-<div class='row'>
-  <div class='column'>
-    <div ng-app='app'>
-      <div class='comments' ng-controller='CommentsController as vm'>
-        <form name="form">
-          <fieldset>
-            <legend>
-              Your comment
-            </legend>
-            <div>
-              <label>
-                Name: <br>
-                <input
-                  name="name"
-                  id="nameInput"
-                  require="required"
-                  ng-model='name' 
-                  type='text'>
-                <div ng-messages="form.name.$error">
-                  <p ng-message="required"> Name is required </p>
-                </div>  
-              </label>
-            </div>
-            <div>
-              <label>
-                Comment:<br>
-                <textarea 
-                  name="text"
-                  id="commentText"
-                  required="required"
-                  ng-model='text'> 
-                </textarea>
-                  <div ng-messages="form.text.$error">
-                    <p ng-message="required"> Comment is required </p>
-                  </div>
-              </label>
-            </div>
-            <div>
-              <input class='button' ng-click='vm.submit()' type='submit' value='Submit'>
-            </div>
-          </fieldset>
-        </form>
-        <h3>
-          {{vm.comments.length}} Comments
-        </h3>
-        <ul>
-          <li ng-repeat='comment in vm.comments'>
-            <div class='comment' ng-class='{approved: comment.approved}'>
-              <h5>
-                {{comment.name}}:
-              </h5>
+
+  <div class='row'>
+    <div class='column'>
+      <div ng-app='app'>
+        <div class='comments' ng-controller='CommentsController as vm'>
+          <form name="form">
+            <fieldset>
+              <legend>
+                Your comment
+              </legend>
               <div>
-                {{comment.text}}
+                <label>
+                  Name: <br>
+                  <input
+                    name="name"
+                    id="nameInput"
+                    require="required"
+                    ng-model='name' 
+                    type='text'>
+                  <div ng-messages="form.name.$error">
+                    <p ng-message="required"> Name is required </p>
+                  </div>  
+                </label>
               </div>
-              <p>
-                <small>
-                  <a ng-click='vm.approve(comment)' ng-hide='comment.approved'>
-                    approve comment
-                    |
-                  </a>
-                  <a ng-click='vm.drop(comment)'>
-                    delete comment
-                  </a>
-                </small>
-              </p>
-            </div>
-          </li>
-        </ul>
+              <div>
+                <label>
+                  Comment:<br>
+                  <textarea 
+                    name="text"
+                    id="commentText"
+                    required="required"
+                    ng-model='text'> 
+                  </textarea>
+                    <div ng-messages="form.text.$error">
+                      <p ng-message="required"> Comment is required </p>
+                    </div>
+                </label>
+              </div>
+              <div>
+                <input class='button' ng-click='vm.submit()' type='submit' value='Submit'>
+              </div>
+            </fieldset>
+          </form>
+          <h3>
+            {{vm.comments.length}} Comments
+          </h3>
+          <ul>
+            <li ng-repeat='comment in vm.comments'>
+              <div class='comment' ng-class='{approved: comment.approved}'>
+                <h5>
+                  {{comment.name}}:
+                </h5>
+                <div>
+                  {{comment.text}}
+                </div>
+                <p>
+                  <small>
+                    <a ng-click='vm.approve(comment)' ng-hide='comment.approved'>
+                      approve comment
+                      |
+                    </a>
+                    <a ng-click='vm.drop(comment)'>
+                      delete comment
+                    </a>
+                  </small>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

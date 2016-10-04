@@ -1,17 +1,19 @@
 body {
-  padding-top: 50px;
   text-align: center;
 }
 .template {
-  padding: 40px 15px;
   text-align: center;
-  color: #FF6347;
+  color: #4169E1;
 }
 
 .comp {
-  padding: 40px 15px;
   text-align: center;
-  color: #FF6347;
+  color: #4169E1;
+  padding-bottom: 1cm;
 }
 
-
+.comments {
+  text-align: center;
+  color: #4169E1;
+  padding-bottom: 1cm;
+}

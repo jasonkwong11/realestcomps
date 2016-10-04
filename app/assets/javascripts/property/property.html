@@ -1,11 +1,12 @@
 <br>
 <h4>Here are the comps for</h4>
-
-{{$parent.vm.property.data.street}}.
-{{$parent.vm.property.data.city}},
-{{$parent.vm.property.data.state}}
-{{$parent.vm.property.data.zip}} 
-<strong> Zillow Estimated Value: {{$parent.vm.property.data.zestimate | currency}}</strong>
+  <div class="template">
+  {{$parent.vm.property.data.street}}.
+  {{$parent.vm.property.data.city}},
+  {{$parent.vm.property.data.state}}
+  {{$parent.vm.property.data.zip}} 
+  <strong> Zillow Estimated Value: {{$parent.vm.property.data.zestimate | currency}}</strong>
+</div>
 
 <br><br>
   <p><strong>Filter by Bathrooms</strong></p>
