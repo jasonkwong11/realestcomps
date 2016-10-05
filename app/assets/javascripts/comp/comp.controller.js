@@ -15,7 +15,6 @@
 
         // defined methods
         function activate() {
-            debugger;
             getProperty();
         }
 
@@ -29,11 +28,6 @@
             return vm.property = data;  
         }
 
-     //   function setCurrentComp(){
-     //       var compsArray = vm.comps;
-    //        return vm.currentComp = compsArray.find(comp.id === $stateParams.id)
-    //        
-    //    }
     };
 
     angular
