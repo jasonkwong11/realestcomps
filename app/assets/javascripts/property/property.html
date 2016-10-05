@@ -1,10 +1,10 @@
 <br>
 <h4>Here are the comps for</h4>
   <div class="template">
-  {{$parent.vm.property.data.street}}.
-  {{$parent.vm.property.data.city}},
-  {{$parent.vm.property.data.state}}
-  {{$parent.vm.property.data.zip}} 
+  {{$parent.vm.property.street}}.
+  {{$parent.vm.property.city}},
+  {{$parent.vm.property.state}}
+  {{$parent.vm.property.zip}} 
   <strong> Zillow Estimated Value: {{$parent.vm.property.data.zestimate | currency}}</strong>
 </div>
 
@@ -18,7 +18,7 @@
 <strong>Search Comparable Properties:</strong>
 <input ng-model="vm.search" placeholder="e.g. Locklie Dr., 1998"/>
 
-   <div dir-paginate="comp in $parent.vm.property.data.comps | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter: vm.search | itemsPerPage: 3">
+   <div dir-paginate="comp in $parent.vm.property.comps | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter: vm.search | itemsPerPage: 3">
       <fieldset><a href="" ui-sref='search.property.comp({compId: comp.id})'>{{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}} | Zillow Estimated Value: {{comp.zestimate | currency}} </a><br> {{comp.bedrooms}} Beds, {{comp.bathrooms}} Baths<br> Year Built: {{comp.year_built}} <br> Last Sold: {{comp.last_sold_date}} for {{comp.last_sold_price | currency}}
       </fieldset>
     </div>

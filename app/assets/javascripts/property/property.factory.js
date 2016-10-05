@@ -9,8 +9,9 @@
         }
 
         function getProperty() {
+           // console.log("inside of getProperty")
             return $http.get('/property')
-            console.log("inside of getProperty")
+            
                        .then(handleResponse)
                        .catch(handleError);
         }
@@ -28,11 +29,11 @@
             };
 
             return $http(req)
-                .catch(handleError)
+                .catch(handleError);
         }
 
         function handleResponse(response) {
-            console.log(response)
+            //console.log(response)
             return response.data
         }
 
