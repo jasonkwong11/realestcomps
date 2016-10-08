@@ -24,7 +24,9 @@
                     });
         }
 
-        
+        function createComment() {
+            return PropertyFactory.createComment(vm.newComment)
+        }
     };
 
     angular
