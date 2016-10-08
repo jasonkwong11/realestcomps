@@ -6,12 +6,12 @@
         return {
             getProperty: getProperty,
             createProperty: createProperty
+
         }
 
-        function getProperty() {
+        function getProperty(compId) {
            // console.log("inside of getProperty")
-            return $http.get('/property')
-            
+            return $http.get('property', {params: {compId: compId}})      
                        .then(handleResponse)
                        .catch(handleError);
         }
@@ -19,7 +19,7 @@
         function createProperty(property) {
             var req = {
                 method: "POST",
-                url: '/property',
+                url: '/properties',
                 headers: {
                     'Content-Type': 'application/json'
                 },

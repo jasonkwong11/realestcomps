@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
-  post '/property', to: 'properties#create'
-  get 'property' => "properties#show" 
+  post '/properties', to: 'properties#create'
+  get '/property' => "properties#show" 
 
   get '/search', to: 'properties#show', as: 'home'
 

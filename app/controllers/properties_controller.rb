@@ -18,7 +18,7 @@ class PropertiesController < ApplicationController
     zestimate = result["response"][0]["results"][0]["result"][0]["zestimate"][0]["amount"][0]["content"] 
     thirty_day_change = result["response"][0]["results"][0]["result"][0]["zestimate"][0]["valueChange"][0]["content"]
 
-    @principle_property = Property.create(zpid:zpid, street:street, city:city, zip:zip, state:state, latitude:latitude, longitude:longitude, zestimate:zestimate, thirty_day_change:thirty_day_change)
+    @principle_property = Property.find_or_create_by(zpid:zpid, street:street, city:city, zip:zip, state:state, latitude:latitude, longitude:longitude, zestimate:zestimate, thirty_day_change:thirty_day_change)
     principle_property_zpid = @principle_property.zpid 
 
     comps = Rillow.new('X1-ZWz1fgbe5szxmz_29gz1')
@@ -63,7 +63,7 @@ class PropertiesController < ApplicationController
       map_this_home_link = property["links"][0]["mapthishome"][0]
       similar_sales_link = property["links"][0]["comparables"][0]
 
-      @principle_property.comps.create(zpid:zpid, street:street, city:city, zip:zip, state:state, latitude:latitude, longitude:longitude, zestimate:zestimate, thirty_day_change:thirty_day_change, percentile:percentile, year_tax_assessed:year_tax_assessed, tax_assessment:tax_assessment, year_built:year_built, square_feet:square_feet, bathrooms:bathrooms, bedrooms:bedrooms, last_sold_date:last_sold_date, last_sold_price:last_sold_price, home_details_link:home_details_link, chart_data_link:chart_data_link, map_this_home_link:map_this_home_link, similar_sales_link:similar_sales_link)
+      @principle_property.comps.find_or_create_by(zpid:zpid, street:street, city:city, zip:zip, state:state, latitude:latitude, longitude:longitude, zestimate:zestimate, thirty_day_change:thirty_day_change, percentile:percentile, year_tax_assessed:year_tax_assessed, tax_assessment:tax_assessment, year_built:year_built, square_feet:square_feet, bathrooms:bathrooms, bedrooms:bedrooms, last_sold_date:last_sold_date, last_sold_price:last_sold_price, home_details_link:home_details_link, chart_data_link:chart_data_link, map_this_home_link:map_this_home_link, similar_sales_link:similar_sales_link)
     
     end
 
@@ -76,7 +76,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.last
+    comp = Comp.find(params[:compId])
+    @property = Property.find(comp.property_id)
      render json: @property
   end
 end

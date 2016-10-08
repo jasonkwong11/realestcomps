@@ -19,7 +19,7 @@
         }
 
         function getProperty() {
-            return PropertyFactory.getProperty()
+            return PropertyFactory.getProperty(vm.compId)
                        .then(setPropertyAndComps)
         }
 

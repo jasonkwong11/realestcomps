@@ -22,7 +22,6 @@
                         vm.loading = false;
                         $state.go('search.property')
                     });
-
         }
     };
 
