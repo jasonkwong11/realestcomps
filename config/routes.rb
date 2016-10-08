@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/properties', to: 'properties#create'
   get '/property' => "properties#show" 
 
+  post '/comments', to: 'comments#create'
+
   get '/search', to: 'properties#show', as: 'home'
 
   resources :properties, only: [:show, :create, :update, :destroy] do 

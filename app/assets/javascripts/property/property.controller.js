@@ -9,6 +9,7 @@
   
         vm.createProperty = createProperty;
         vm.loading = false;
+        vm.currentPropertyId = "";
 
         function createProperty() {
             vm.loading = true;
@@ -16,6 +17,7 @@
                     .then(function(response){
                         vm.property = response.data
                         console.log(vm.property)
+                        vm.currentPropertyId = vm.property.id
                     }, function(response){
                       console.log("The request failed: " + response);
                     }).then(function(){
@@ -25,7 +27,10 @@
         }
 
         function createComment() {
-            return PropertyFactory.createComment(vm.newComment)
+            return PropertyFactory.createComment(vm.newComment, vm.currentPropertyId)
+                .then(function(response){
+
+                })
         }
     };
 

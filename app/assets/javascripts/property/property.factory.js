@@ -32,6 +32,23 @@
                 .catch(handleError);
         }
 
+        function createComment(comment, currentPropertyId) {
+            var req = {
+                method: "POST",
+                url: '/comments',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: {
+                    comment: comment,
+                    currentPropertyId: currentPropertyId
+                }
+            };
+
+            return $http(req)
+                .catch(handleError);
+        }
+
         function handleResponse(response) {
             //console.log(response)
             return response.data
