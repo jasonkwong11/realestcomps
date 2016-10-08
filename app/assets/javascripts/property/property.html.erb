@@ -27,6 +27,45 @@
 
 </div>
 
+          <form name="form">
+            <fieldset>
+              <legend>
+              Leave a comment for this property:
+              </legend>
+              <div>
+                <label>
+                  Name: <br>
+                  <input
+                    name="username"
+                    id="username"
+                    require="required"
+                    ng-model='username' 
+                    type='text'>
+                  <div ng-messages="form.username.$error">
+                    <p ng-message="required"> Name is required </p>
+                  </div>  
+                </label>
+              </div>
+              <div>
+                <label>
+                  Comment:<br>
+                  <textarea 
+                    name="content"
+                    id="content"
+                    required="required"
+                    ng-model='content'> 
+                  </textarea>
+                    <div ng-messages="form.content.$error">
+                      <p ng-message="required"> Comment is required </p>
+                    </div>
+                </label>
+              </div>
+              <div>
+                <input class='button' ng-click='vm.createComment()' type='submit' value='Submit'>
+              </div>
+            </fieldset>
+          </form>
+
 <ui-view>
 
 </ui-view>

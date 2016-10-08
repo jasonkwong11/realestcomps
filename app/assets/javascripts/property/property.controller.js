@@ -23,6 +23,8 @@
                         $state.go('search.property')
                     });
         }
+
+        
     };
 
     angular
