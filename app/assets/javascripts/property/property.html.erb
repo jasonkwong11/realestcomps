@@ -5,6 +5,7 @@
   {{$parent.vm.property.city}},
   {{$parent.vm.property.state}}
   {{$parent.vm.property.zip}} 
+
   <strong> Zillow Estimated Value: {{$parent.vm.property.data.zestimate | currency}}</strong>
 </div>
 
@@ -68,7 +69,7 @@
 
 
              <div ng-repeat="comment in $parent.vm.property.comments">
-                comment.street: {{comment}}
+                {{comment.username}} says {{comment.content}}
               </div>
 
 <ui-view>

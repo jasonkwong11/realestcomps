@@ -30,10 +30,14 @@
             vm.newComment.currentPropertyId = $scope.currentPropertyId
             return PropertyFactory.createComment(vm.newComment)
                 .then(function(response){
-                    console.log("THIS IS response.config.data IN THE CONTROLLERS CREATE COMMENT....")
-                    console.log(response.config.data)
-                   // vm.comment = response.data
-                });
+                    console.log("THIS IS response IN THE CONTROLLERS CREATE COMMENT....")
+                    console.log(response)
+                    vm.property = response.data
+                })
+               .then(function(){
+                   vm.loading = false;
+                   $state.go('search.property')
+               });
         }
     };
 
