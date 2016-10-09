@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/property' => "properties#show" 
 
   post '/comments', to: 'comments#create'
+  get '/comments', to: 'comments#index'
 
   get '/search', to: 'properties#show', as: 'home'
 

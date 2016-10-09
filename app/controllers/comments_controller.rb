@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
+    @properties = Property.all
+
+    render json: @comments
+    render json: @properties
   end
 
   def create
