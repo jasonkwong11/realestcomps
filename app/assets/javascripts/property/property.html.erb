@@ -1,12 +1,15 @@
 <br>
 <h4>Here are the comps for</h4>
   <div class="template">
-  {{$parent.vm.property.street}}.
-  {{$parent.vm.property.city}},
-  {{$parent.vm.property.state}}
-  {{$parent.vm.property.zip}} 
+  <strong>
+    {{$parent.vm.property.street}}.
+    {{$parent.vm.property.city}},
+    {{$parent.vm.property.state}}
+    {{$parent.vm.property.zip}} | Zillow Estimated Value: {{$parent.vm.property.zestimate | currency}}<br>
+    {{$parent.vm.property.bedrooms}} Beds, {{$parent.vm.property.bathrooms}} Bathrooms <br>
+    Year Built:{{$parent.vm.property.year_built}} <br>
+    Last Sold: {{$parent.vm.property.last_sold_date}} for {{$parent.vm.property.last_sold_price | currency}} </strong>
 
-  <strong> Zillow Estimated Value: {{$parent.vm.property.data.zestimate | currency}}</strong>
 </div>
 
 <br><br>
@@ -61,7 +64,7 @@
                     </label>
                   </div>
                   <div>
-                    <br><input class="btn" type='submit' value='Search!'>
+                    <br><input class="btn" type='submit' value='Submit Comment'>
                   </div>
                 </fieldset>
               </form>
@@ -70,6 +73,10 @@
 
              <div ng-repeat="comment in $parent.vm.property.comments">
                 {{comment.username}} says {{comment.content}}
+              </div>
+
+              <div ng-repeat="comment in vm.comments">
+                {{ comment.username }} says {{comment.content}}
               </div>
 
 <ui-view>
