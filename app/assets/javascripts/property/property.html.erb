@@ -7,7 +7,7 @@
     {{$parent.vm.property.state}}
     {{$parent.vm.property.zip}} | Zillow Estimated Value: {{$parent.vm.property.zestimate | currency}}<br>
     {{$parent.vm.property.bedrooms}} Beds, {{$parent.vm.property.bathrooms}} Bathrooms <br>
-    Year Built:{{$parent.vm.property.year_built}} <br>
+    Year Built: {{$parent.vm.property.year_built}} <br>
     Last Sold: {{$parent.vm.property.last_sold_date}} for {{$parent.vm.property.last_sold_price | currency}} </strong>
 
 </div>
@@ -72,11 +72,11 @@
 
 
              <div ng-repeat="comment in $parent.vm.property.comments">
-                {{comment.username}} says {{comment.content}}
+                {{comment.username}} says "{{comment.content}}"
               </div>
 
               <div ng-repeat="comment in vm.comments">
-                {{ comment.username }} says {{comment.content}}
+                {{ comment.username }} says "{{comment.content}}"
               </div>
 
 <ui-view>
