@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    function PropertyController(PropertyFactory, $state) {
+    function PropertyController(PropertyFactory, $state, $scope) {
 
         var vm = this;
 
@@ -9,7 +9,7 @@
   
         vm.createProperty = createProperty;
         vm.loading = false;
-        vm.currentPropertyId = "";
+        vm.createComment = createComment;
 
         function createProperty() {
             vm.loading = true;
@@ -17,7 +17,7 @@
                     .then(function(response){
                         vm.property = response.data
                         console.log(vm.property)
-                        vm.currentPropertyId = vm.property.id
+                        $scope.currentPropertyId = vm.property.id
                     }, function(response){
                       console.log("The request failed: " + response);
                     }).then(function(){
@@ -27,10 +27,13 @@
         }
 
         function createComment() {
-            return PropertyFactory.createComment(vm.newComment, vm.currentPropertyId)
+            vm.newComment.currentPropertyId = $scope.currentPropertyId
+            return PropertyFactory.createComment(vm.newComment)
                 .then(function(response){
-
-                })
+                    console.log("THIS IS response.config.data IN THE CONTROLLERS CREATE COMMENT....")
+                    console.log(response.config.data)
+                   // vm.comment = response.data
+                });
         }
     };
 

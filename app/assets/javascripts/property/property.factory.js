@@ -5,7 +5,8 @@
     function PropertyFactory($http) {
         return {
             getProperty: getProperty,
-            createProperty: createProperty
+            createProperty: createProperty,
+            createComment: createComment
 
         }
 
