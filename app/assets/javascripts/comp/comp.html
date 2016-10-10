@@ -1,5 +1,5 @@
 <ui-view>
-<div class="comp" ng-repeat="comp in vm.comps | filter: {id: vm.compId}">
+<div class="comp" ng-repeat="comp in vm.comps | filter: {id: vm.compId} track by $index">
   <h2>{{comp.street}}. {{comp.city}}, {{comp.state}} {{comp.zip}}</h2>
   <h3>Zillow Estimated Value: {{comp.zestimate | currency}}</h3>
   Thirty Day Change in Value: {{comp.thirty_day_change | currency}} <br>

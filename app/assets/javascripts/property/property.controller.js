@@ -10,6 +10,7 @@
         vm.createProperty = createProperty;
         vm.loading = false;
         vm.createComment = createComment;
+        vm.newComments = [];
 
         function createProperty() {
             vm.loading = true;
@@ -25,11 +26,20 @@
                     });
         }
 
+
+
         function createComment() {
             vm.newComment.currentPropertyId = $scope.currentPropertyId
             return PropertyFactory.createComment(vm.newComment)
                 .then(function(response){
-                    vm.comments = response.data.comments
+
+                    if (!Array.prototype.last){
+                        Array.prototype.last = function(){
+                            return this[this.length - 1];
+                        };
+                    };
+
+                    vm.newComments.push(response.data.comments.last());
                 }, function(response){
                     console.log("The request failed: " + response)
                 });
