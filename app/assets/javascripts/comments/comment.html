@@ -10,12 +10,15 @@
 
 <div class="template">
   <h1>Comments</h1>
-  <h4>Here are all the comments</h4>
+  <h4>...all the comments</h4>
 </div>
 
 
 <div class="comments">
   <div ng-repeat="comment in vm.allComments">
     {{comment.id}}. {{ comment.username }} says, "{{comment.content}}"
+    <div ng-repeat="property in vm.allProperties | filter: {id: comment.property_id}">
+      ...about {{property.street}}. {{property.city}}, {{property.state}} {{property.zip}} | Zillow Estimated Value: {{property.zestimate | currency}}<br><br>
+    </div>
   </div>
 </div>

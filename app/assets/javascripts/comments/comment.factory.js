@@ -4,7 +4,8 @@
 
     function CommentFactory($http) {
         return {
-            getComments: getComments
+            getComments: getComments,
+            getProperties: getProperties
         }
 
         function getComments() {
