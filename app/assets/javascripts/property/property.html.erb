@@ -31,53 +31,53 @@
 
 </div>
 
-              <form ng-submit="vm.createComment()">
-                <fieldset>
-                  <legend>
-                    Leave a comment for this property:
-                  </legend>
-                  <div>
-                    <label for="username"> Name: </label><br>
-                      <input
-                        ng-model="vm.newComment.username"
-                        name="username"
-                        id="username"
-                        require="required"
-                        type='text'>
-                      <div ng-messages="form.username.$error">
-                        <p ng-message="required"> Name is required </p>
-                      </div>  
-                    </label>
-                  </div>
-                  <div>
-                    <label for="content">Comment</label><br>
-                      <input 
-                        ng-model="vm.newComment.content"
-                        type="text"
-                        name="content"
-                        id="content"
-                        required="required"> 
-                      </input>
-                        <div ng-messages="form.content.$error">
-                          <p ng-message="required"> Comment is required </p>
-                        </div>
-                    </label>
-                  </div>
-                  <div>
-                    <br><input class="btn" type='submit' value='Submit'>
-                  </div>
-                </fieldset>
-              </form>
+  <form ng-submit="vm.createComment()">
+    <fieldset>
+      <legend>
+        Leave a comment for this property:
+      </legend>
+      <div>
+        <label for="username"> Name: </label><br>
+          <input
+            ng-model="vm.newComment.username"
+            type='text'
+            name="username"
+            id="username"
+            required="required">
+          <div ng-messages="form.content.$error">
+            <p ng-message="required"> Name is required </p>
+          </div>  
+        </label>
+      </div>
+      <div>
+        <label for="content">Comment</label><br>
+          <input 
+            ng-model="vm.newComment.content"
+            type="text"
+            name="content"
+            id="content"
+            required="required"> 
+          </input>
+            <div ng-messages="form.content.$error">
+              <p ng-message="required"> Comment is required </p>
+            </div>
+        </label>
+      </div>
+      <div>
+        <br><input class="btn" type='submit' value='Submit'>
+      </div>
+    </fieldset>
+  </form>
 
 
 
-             <div ng-repeat="comment in $parent.vm.property.comments">
-                {{comment.username}} says, "{{comment.content}}"
-              </div>
+ <div ng-repeat="comment in $parent.vm.property.comments">
+    {{comment.username}} says, "{{comment.content}}"
+  </div>
 
-              <div ng-repeat="comment in vm.newComments">
-                {{ comment.username }} says, "{{comment.content}}"
-              </div>
+  <div ng-repeat="comment in vm.newComments">
+    {{ comment.username }} says, "{{comment.content}}"
+  </div>
 
 <ui-view>
 
