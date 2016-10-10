@@ -6,9 +6,6 @@
     
       var vm = this;
 
-      vm.name = '';
-
-
         vm.displayComments = displayComments;
 
         activate();
@@ -20,8 +17,7 @@
         function displayComments(){
           return CommentFactory.getComments()
             .then(function(response){
-              vm.comments = response.data
-              console.log(vm.comments)
+              vm.allComments = response.data
             });
         }
 

@@ -12,3 +12,10 @@
   <h1>Comments</h1>
   <h4>Here are all the comments</h4>
 </div>
+
+
+<div class="comments">
+  <div ng-repeat="comment in vm.allComments">
+    {{comment.id}}. {{ comment.username }} says, "{{comment.content}}"
+  </div>
+</div>
