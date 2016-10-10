@@ -11,7 +11,6 @@
         }
 
         function getProperty(compId) {
-           // console.log("inside of getProperty")
             return $http.get('property', {params: {compId: compId}})      
                        .then(handleResponse)
                        .catch(handleError);
@@ -51,7 +50,6 @@
         }
 
         function handleResponse(response) {
-            //console.log(response)
             return response.data
         }
 

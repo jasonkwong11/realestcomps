@@ -16,7 +16,6 @@
             return PropertyFactory.createProperty(vm.newProperty)
                     .then(function(response){
                         vm.property = response.data
-                        console.log(vm.property)
                         $scope.currentPropertyId = vm.property.id
                     }, function(response){
                       console.log("The request failed: " + response);

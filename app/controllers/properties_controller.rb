@@ -3,6 +3,11 @@ require 'rillow'
 class PropertiesController < ApplicationController
    skip_before_action :verify_authenticity_token
 
+  def index
+    @properties = Property.all
+    render json: @properties
+  end
+
   def create
     rillow = Rillow.new('X1-ZWz1fgbe5szxmz_29gz1') 
     result = rillow.get_search_results(params[:property][:street_address], params[:property][:citystatezip]) 
