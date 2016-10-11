@@ -43,7 +43,8 @@
 
                     if (!Array.prototype.last){
                         Array.prototype.last = function(){
-                            return this[this.length - 1];
+                        var thi = this;
+                            return thi[thi.length - 1];
                         };
                     };
 

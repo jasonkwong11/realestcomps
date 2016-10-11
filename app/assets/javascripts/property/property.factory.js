@@ -53,7 +53,7 @@
         }
 
         function handleError(error) {
-            $window.alert("Your property was not found. Please enter a valid residential property address.")
+            $window.alert("Property not found. Please enter a valid residential property address.")
             return error;
         }
     }
