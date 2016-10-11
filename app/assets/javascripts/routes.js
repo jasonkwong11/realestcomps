@@ -4,8 +4,12 @@
 
     angular
         .module('app')
-        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-            $stateProvider
+        .config([
+            '$stateProvider',
+            '$urlRouterProvider',
+            '$locationProvider',
+            function ($stateProvider, $urlRouterProvider, $locationProvider) {
+              $stateProvider
                 .state('search', {
                     url: '/',
                     templateUrl: 'search/search.html',
@@ -31,8 +35,7 @@
                     controller: 'CommentsController as vm'
                 });
 
-            $urlRouterProvider.otherwise('/');
-
-        });
-
+                $urlRouterProvider.otherwise('/');
+            }
+          ])
 }());
