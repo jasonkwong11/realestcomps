@@ -2,7 +2,7 @@
 
     'use strict';
 
-    function PropertyFactory($http) {
+    function PropertyFactory($http, $window, $state) {
         return {
             getProperty: getProperty,
             createProperty: createProperty,
@@ -27,7 +27,6 @@
                     property: property 
                 }
             };
-
             return $http(req)
                 .catch(handleError);
         }
@@ -54,7 +53,8 @@
         }
 
         function handleError(error) {
-            console.log(error)
+            $window.alert("Your property was not found. Please try again.")
+            return error;
         }
     }
 

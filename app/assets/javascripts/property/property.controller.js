@@ -16,13 +16,21 @@
             vm.loading = true;
             return PropertyFactory.createProperty(vm.newProperty)
                     .then(function(response){
+                    if (response.data.errors == null){
                         vm.property = response.data
                         $scope.currentPropertyId = vm.property.id
+                    } else {vm.error = true}
                     }, function(response){
                       console.log("The request failed: " + response);
                     }).then(function(){
                         vm.loading = false;
-                        $state.go('search.property')
+                        if (vm.error === true) { 
+                            vm.error = false;
+                            $state.go('search')
+                        } else {
+                            vm.error = false;
+                            $state.go('search.property')
+                        }
                     });
         }
 
