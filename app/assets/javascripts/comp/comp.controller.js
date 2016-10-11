@@ -30,6 +30,8 @@
 
     };
 
+    CompController.$inject = ['PropertyFactory', '$stateParams']
+
     angular
         .module('app')
         .controller('CompController', CompController);

@@ -31,7 +31,7 @@
         }
 
     }
-
+    CommentsController.$inject = ['CommentFactory']
     angular
         .module('app')
         .controller('CommentsController', CommentsController);

@@ -55,6 +55,8 @@
         }
     };
 
+    PropertyController.$inject = ['PropertyFactory', '$state', '$scope']
+
     angular
         .module('app')
         .controller('PropertyController', PropertyController);
