@@ -57,6 +57,7 @@
             return error;
         }
     }
+    PropertyFactory.$inject = ['$http', '$window', '$state']
 
     angular
         .module('app')

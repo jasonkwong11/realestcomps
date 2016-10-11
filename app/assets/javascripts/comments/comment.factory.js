@@ -41,6 +41,7 @@
 
     }
 
+    CommentFactory.$inject = ['$http']
     angular
         .module('app')
         .factory('CommentFactory', CommentFactory);
