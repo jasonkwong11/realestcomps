@@ -21,7 +21,7 @@ Bower is included in the gem so if you want to add some front end dependencies, 
 
 ## Future Plans
 
-I plan to add the Twitter Bootstrap styling for the app, a fully functional property analytics section on the homepage, and to fix the pagination styling as well. 
+I plan to add a fully functional property analytics section
 
 ## License
 
