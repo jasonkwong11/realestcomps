@@ -34,8 +34,6 @@ class PropertiesController < ApplicationController
       response = comps.get_deep_comps(principle_property_zpid, 25)
 
       @principle_property.percentile = response["response"][0]["properties"][0]["principal"][0]["zestimate"][0]["percentile"][0]
-      @principle_property.year_tax_assessed = response["response"][0]["properties"][0]["principal"][0]["taxAssessmentYear"][0]
-      @principle_property.tax_assessment = response["response"][0]["properties"][0]["principal"][0]["taxAssessment"][0]
       @principle_property.year_built = response["response"][0]["properties"][0]["principal"][0]["yearBuilt"][0]
       @principle_property.square_feet = response["response"][0]["properties"][0]["principal"][0]["lotSizeSqFt"][0]
       @principle_property.bathrooms = response["response"][0]["properties"][0]["principal"][0]["bathrooms"][0]
@@ -55,15 +53,15 @@ class PropertiesController < ApplicationController
         zip = property["address"][0]["zipcode"][0]
         latitude = property["address"][0]["latitude"][0]
         longitude = property["address"][0]["longitude"][0]
-        zestimate = property["zestimate"][0]["amount"][0]["content"]
-        thirty_day_change = property["zestimate"][0]["valueChange"][0]["content"]
-        percentile = property["zestimate"][0]["percentile"][0]
-        year_built = property["yearBuilt"][0]
-        square_feet = property["lotSizeSqFt"][0]
-        bathrooms = property["bathrooms"][0]
-        bedrooms = property["bedrooms"][0]
-        last_sold_date = property["lastSoldDate"][0]
-        last_sold_price = property["lastSoldPrice"][0]["content"]
+        zestimate = property["zestimate"][0]["amount"][0]["content"] || 'N/A'
+        thirty_day_change = property["zestimate"][0]["valueChange"][0]["content"] || 'N/A'
+        percentile = property["zestimate"][0]["percentile"][0] || 'N/A'
+        year_built = property["yearBuilt"] ? property["yearBuilt"][0] : 'N/A'
+        square_feet = property["lotSizeSqFt"] ? property["lotSizeSqFt"][0] : 'N/A'
+        bathrooms = property["bathrooms"] ? property["bathrooms"][0] : 'N/A'
+        bedrooms = property["bedrooms"] ? property["bedrooms"][0] : 'N/A'
+        last_sold_date = property["lastSoldDate"] ? property["lastSoldDate"][0] : 'N/A'
+        last_sold_price = property["lastSoldPrice"] ? property["lastSoldPrice"][0]["content"] : 'N/A'
         zpid = property["zpid"][0]
         home_details_link = property["links"][0]["homedetails"][0]
         map_this_home_link = property["links"][0]["mapthishome"][0]
